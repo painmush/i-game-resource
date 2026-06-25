@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026世界杯 · 一站查询 | 中国移动</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 3.5rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e6eaef;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: #0b1c2f;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #3f4a5a;
+      max-width: 680px;
+      margin: 0 auto 1.4rem;
+    }
+
+    .hero .meta-line {
+      display: inline-block;
+      background: #ebeff5;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #2c3e50;
+      border: 1px solid #dde3ec;
+    }
+
+    /* 通用卡片 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e1e6ed;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      color: #102433;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card p, .card ul {
+      font-size: 0.95rem;
+      color: #2f3b4b;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .card li {
+      margin-bottom: 0.4rem;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .card li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+      color: #2b6cb0;
+      font-weight: bold;
+    }
+
+    /* 说明区 (单栏) */
+    .info-section {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.2rem 2rem;
+      margin: 2rem 0;
+      border: 1px solid #e1e6ed;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .info-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      color: #0b1c2f;
+      border-left: 4px solid #2b6cb0;
+      padding-left: 1rem;
+    }
+
+    .info-section p {
+      margin-bottom: 1rem;
+    }
+
+    .info-section a {
+      color: #1a5a9e;
+      text-decoration: none;
+      border-bottom: 1px solid #bcd0e8;
+    }
+
+    .info-section a:hover {
+      border-bottom-color: #1a5a9e;
+    }
+
+    .faq-block {
+      margin-top: 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #eef2f6;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #1e2a3a;
+    }
+
+    .faq-item span {
+      font-size: 0.92rem;
+      color: #445566;
+    }
+
+    .bottom-links {
+      margin: 2.8rem 0 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+      justify-content: center;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.6rem 2rem;
+      border: 1px solid #e1e6ed;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .bottom-links a {
+      color: #1a5a9e;
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+    }
+
+    .bottom-links a:hover {
+      border-bottom-color: #1a5a9e;
+    }
+
+    .bottom-links .highlight-link {
+      font-weight: 600;
+      padding: 0.3rem 1rem;
+      background: #edf2f9;
+      border-radius: 40px;
+      border: 1px solid #d0dbea;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.82rem;
+      color: #7a8799;
+      margin-top: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 1rem 0.8rem; }
+      .hero { padding: 2rem 1.2rem; }
+      .hero h1 { font-size: 2rem; }
+      .card-grid { grid-template-columns: 1fr; }
+      .info-section { padding: 1.6rem 1rem; }
+      .bottom-links { flex-direction: column; gap: 1rem; padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <h1>2026世界杯 · 信息查询台</h1>
+      <p class="sub">赛程、阵容、纪录与延伸阅读 —— 一个入口，随时对照。</p>
+      <div class="meta-line">🇺🇸🇨🇦🇲🇽 主办 · 48 支球队 · 104 场比赛</div>
+    </section>
+
+    <!-- 优势区：日常查询场景 -->
+    <section class="card-grid">
+      <div class="card">
+        <h3>📋 赛程与对阵</h3>
+        <p>逐日查看小组赛、淘汰赛时间表，支持按球队、城市过滤。同时提供历史交手数据与实时积分。</p>
+      </div>
+      <div class="card">
+        <h3>🏟️ 球场指南</h3>
+        <p>16 座承办球场容量、交通、周边住宿一站收录。每座球场附往届赛事氛围报告。</p>
+      </div>
+      <div class="card">
+        <h3>📊 数据对照</h3>
+        <p>进球、助攻、控球率、跑动距离等核心指标跨届对比。可拉取最近三届 世界杯 数据叠加分析。</p>
+      </div>
+    </section>
+
+    <!-- 说明区：延伸阅读角度 -->
+    <section class="info-section">
+      <h2>从查询到延伸阅读</h2>
+      <p>无论你是在追踪某支国家队的大名单，还是研究近二十年的战术演变，<a href="https://chinamobile-fifa2026.com">世界杯</a>这个聚合页都能缩短查找路径。赛事档案按届次、阶段、星级比赛整理，每场关键战附有赛后评论摘要与战术拆解。</p>
+      <p>对于资深观赛者，额外提供裁判团队、VAR 介入统计、天气影响等非传统维度。日常查询之余，也可以横向比较不同年份的淘汰赛走势。</p>
+      <p>全部数据引用自公开赛事记录与权威机构，更新至最近一场预选赛。不设夸张标题，只做可靠的信息中转。</p>
+
+      <!-- FAQ 摘要（内嵌于说明区） -->
+      <div class="faq-block">
+        <div class="faq-item">
+          <strong>FAQ · 赛程时间以哪里为准？</strong>
+          <span>页面默认显示主办城市当地时间，右上角可切换为北京时间。所有时间已校准至 2026 年官方赛历。</span>
+        </div>
+        <div class="faq-item">
+          <strong>FAQ · 数据多久更新一次？</strong>
+          <span>比赛日实时更新，非比赛日每 48 小时同步一次官方数据源。历史数据不做频繁变动。</span>
+        </div>
+        <div class="faq-item">
+          <strong>FAQ · 能否对比往届 世界杯 数据？</strong>
+          <span>可以。直接选择“跨届对比”标签，目前支持 2002 年至 2022 年间共六届的核心指标对照。</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 底部链接区 -->
+    <div class="bottom-links">
+      <span style="color:#3f4a5a; font-weight:450;">更多信息</span>
+      <a href="https://chinamobile-fifa2026.com">世界杯</a>
+      <a href="#about">关于本站</a>
+      <a href="#source">数据来源说明</a>
+      <span class="highlight-link">⚽ 48 队 · 新赛制</span>
+    </div>
+
+    <div class="footer-note">
+      内容基于公开赛事信息整理 · 非官方页面 · 仅供查询参考
+    </div>
+
+  </div>
+</body>
+</html>
